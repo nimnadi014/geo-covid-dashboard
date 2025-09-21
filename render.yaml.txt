@@ -1,0 +1,10 @@
+render.yaml
+services:
+  - type: web
+    name: covid-dashboard
+    env: python
+    plan: free
+    region: oregon       # or choose another region
+    branch: main         # Git branch you will deploy
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m bokeh serve main.py --port 10000 --allow-websocket-origin=covid-dashboard.onrender.com
